@@ -23,6 +23,45 @@ import {
   Phone,
 } from 'lucide-react';
 
+function FacialIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <ellipse cx="12" cy="11" rx="7" ry="9" />
+      <circle cx="9" cy="10" r="0.8" fill="currentColor" stroke="none" />
+      <circle cx="15" cy="10" r="0.8" fill="currentColor" stroke="none" />
+      <path d="M10 14c.5.6 1.2 1 2 1s1.5-.4 2-1" />
+      <path d="M5.5 6c1-1.5 3-2 4-1.5" />
+      <path d="M18.5 6c-1-1.5-3-2-4-1.5" />
+    </svg>
+  );
+}
+
+function PolishingIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2l1.5 3.5L17 7l-3.5 1.5L12 12l-1.5-3.5L7 7l3.5-1.5L12 2z" />
+      <path d="M5 14l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z" />
+      <path d="M18 12l.75 1.5 1.5.75-1.5.75-.75 1.5-.75-1.5-1.5-.75 1.5-.75.75-1.5z" />
+      <path d="M8 20c2-1 4-2 8-2" />
+    </svg>
+  );
+}
+
+function EyelashIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 12c0 0 4 5 9 5s9-5 9-5" />
+      <path d="M3 12c0 0 4-5 9-5s9 5 9 5" />
+      <circle cx="12" cy="12" r="3" />
+      <path d="M12 5V2" />
+      <path d="M8.5 5.5L7 3" />
+      <path d="M15.5 5.5L17 3" />
+      <path d="M5.5 7.5L3.5 5.5" />
+      <path d="M18.5 7.5L20.5 5.5" />
+    </svg>
+  );
+}
+
 const ICON_MAP: Record<string, React.ReactNode> = {
   sparkles: <Sparkles className="w-5 h-5" />,
   sun: <Sun className="w-5 h-5" />,
@@ -37,6 +76,9 @@ const ICON_MAP: Record<string, React.ReactNode> = {
   flask: <FlaskConical className="w-5 h-5" />,
   wind: <Wind className="w-5 h-5" />,
   heart: <Heart className="w-5 h-5" />,
+  facial: <FacialIcon className="w-5 h-5" />,
+  eyelash: <EyelashIcon className="w-5 h-5" />,
+  polishing: <PolishingIcon className="w-5 h-5" />,
 };
 
 const WOMEN_ORDER: Record<string, number> = {
@@ -74,6 +116,9 @@ const FACE_WOMEN_IDS = [
   'facials',
   'premium-treatment',
   'threading',
+  'pedicure-manicure',
+  'waxing',
+  'polishing',
 ];
 
 const MEN_ORDER: Record<string, number> = {
@@ -124,6 +169,9 @@ const bleachWomen = TREATMENT_CATEGORIES.find((c) => c.id === 'bleach');
 const facialsWomen = TREATMENT_CATEGORIES.find((c) => c.id === 'facials');
 const premiumWomen = TREATMENT_CATEGORIES.find((c) => c.id === 'premium-treatment');
 const threadingWomen = TREATMENT_CATEGORIES.find((c) => c.id === 'threading');
+const pedicureManicureWomen = TREATMENT_CATEGORIES.find((c) => c.id === 'pedicure-manicure');
+const waxingWomen = TREATMENT_CATEGORIES.find((c) => c.id === 'waxing');
+const polishingWomen = TREATMENT_CATEGORIES.find((c) => c.id === 'polishing');
 
 const HAIR_WOMEN_SECTIONS = [
   {
@@ -172,6 +220,18 @@ const FACE_WOMEN_SECTIONS = [
   {
     title: 'Threading',
     items: threadingWomen?.items ?? [],
+  },
+  {
+    title: 'Pedicure / Manicure',
+    items: pedicureManicureWomen?.items ?? [],
+  },
+  {
+    title: 'Waxing',
+    items: waxingWomen?.items ?? [],
+  },
+  {
+    title: 'Polishing',
+    items: polishingWomen?.items ?? [],
   },
 ].filter((section) => section.items.length > 0);
 
@@ -315,7 +375,7 @@ export default function Services() {
                   onClick={() => scrollToCategory('face-women')}
                   className="flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap text-gray-500 bg-gray-50 hover:bg-[#E7646A]/10 hover:text-[#E7646A]"
                 >
-                  Face
+                  Skin
                 </button>
                 {womenCategories.map((cat) => (
                   <button
@@ -341,7 +401,7 @@ export default function Services() {
                   onClick={() => scrollToCategory('men-face-main')}
                   className="flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap text-gray-500 bg-gray-50 hover:bg-[#333]/10 hover:text-[#333]"
                 >
-                  Face
+                  Skin
                 </button>
                 {menCategories.map((cat) => (
                   <button
@@ -485,14 +545,14 @@ export default function Services() {
                         className="w-full flex items-center gap-4 p-5 sm:p-6 text-left"
                       >
                         <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-[#E7646A]/10 text-[#E7646A]">
-                          <Flower2 className="w-5 h-5" />
+                          <FacialIcon className="w-5 h-5" />
                         </div>
                         <div className="flex-grow min-w-0">
                           <h2 className="text-base sm:text-lg font-semibold text-[#333] leading-tight">
-                            Face (Women)
+                            Skin (Women)
                           </h2>
                           <p className="text-xs text-gray-400 mt-0.5 line-clamp-2">
-                            Clean-ups, de-tan, bleach, facials, premium rituals and threading.
+                            Clean-ups, de-tan, bleach, facials, premium rituals, threading, pedicure / manicure, waxing and polishing.
                           </p>
                         </div>
                         <div className="flex items-center gap-3 flex-shrink-0">
@@ -855,11 +915,11 @@ export default function Services() {
                         className="w-full flex items-center gap-4 p-5 sm:p-6 text-left"
                       >
                         <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 bg-[#333]/10 text-[#333]">
-                          <Sparkles className="w-5 h-5" />
+                          <FacialIcon className="w-5 h-5" />
                         </div>
                         <div className="flex-grow min-w-0">
                           <h2 className="text-base sm:text-lg font-semibold text-[#333] leading-tight">
-                            Face (Men)
+                            Skin (Men)
                           </h2>
                           <p className="text-xs text-gray-400 mt-0.5 line-clamp-2">
                             Clean-ups, de-tan, bleach, facials and premium skin rituals.

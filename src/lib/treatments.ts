@@ -135,7 +135,7 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Polishing',
     slug: 'polishing',
     fromPrice: '₹700',
-    icon: 'gem',
+    icon: 'polishing',
     description: 'Exfoliate and polish for silky smooth skin',
     items: [
       { name: 'Neck', price: '₹1000' },
@@ -265,7 +265,7 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Nail Extension',
     slug: 'nail-extension',
     fromPrice: '',
-    icon: 'gem',
+    icon: 'hand',
     description: 'Express yourself with stunning nail art and extensions',
     items: [
       { name: 'Nail Extension with Colour', price: '' },
@@ -291,7 +291,7 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Eyelash Extension',
     slug: 'eyelash-extension',
     fromPrice: '',
-    icon: 'sparkles',
+    icon: 'eyelash',
     description: 'Glamorous lash enhancements for every occasion',
     items: [
       { name: 'Eyelash Removal', price: '' },
@@ -482,7 +482,7 @@ export const TREATMENT_CATEGORIES: TreatmentCategory[] = [
     name: 'Polishing (Men)',
     slug: 'men-polishing',
     fromPrice: '',
-    icon: 'gem',
+    icon: 'polishing',
     description: 'Exfoliate and polish for silky smooth skin',
     gender: 'men',
     items: [

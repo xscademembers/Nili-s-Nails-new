@@ -1,9 +1,34 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, PlayCircle, Sparkles, Palette, Leaf, Flower2, Quote } from 'lucide-react';
+import {
+  ArrowRight,
+  Star,
+  PlayCircle,
+  Sparkles,
+  Quote,
+  Scissors,
+  Droplets,
+  HandHeart,
+  Crown,
+  Flower2,
+  User,
+} from 'lucide-react';
 import Link from 'next/link';
 import { TESTIMONIALS } from '@/lib/constants';
+
+function FacialIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <ellipse cx="12" cy="11" rx="7" ry="9" />
+      <circle cx="9" cy="10" r="0.8" fill="currentColor" stroke="none" />
+      <circle cx="15" cy="10" r="0.8" fill="currentColor" stroke="none" />
+      <path d="M10 14c.5.6 1.2 1 2 1s1.5-.4 2-1" />
+      <path d="M5.5 6c1-1.5 3-2 4-1.5" />
+      <path d="M18.5 6c-1-1.5-3-2-4-1.5" />
+    </svg>
+  );
+}
 
 const SPECIALITY_GROUPS = [
   {
@@ -13,6 +38,7 @@ const SPECIALITY_GROUPS = [
     from: '₹600',
     summary: 'Clean ups, detan, bleach, facials & premium treatments.',
     items: ['Clean Up', 'Detan & Bleach', 'Facials', 'Premium Facials'],
+    icon: FacialIcon,
   },
   {
     id: 'body',
@@ -21,6 +47,7 @@ const SPECIALITY_GROUPS = [
     from: '₹100',
     summary: 'Smooth, luminous skin from top to toe.',
     items: ['Threading', 'Waxing (Normal & Premium)', 'Body Polishing'],
+    icon: Droplets,
   },
   {
     id: 'hands-feet',
@@ -29,6 +56,7 @@ const SPECIALITY_GROUPS = [
     from: '₹800',
     summary: 'Signature pedicures & manicures for perfect finishes.',
     items: ['Normal & Premium', "Nili's Signature", 'Rose, Bubble Gum, Ice Cream'],
+    icon: HandHeart,
   },
   {
     id: 'hair',
@@ -37,6 +65,7 @@ const SPECIALITY_GROUPS = [
     from: '₹400',
     summary: 'From classic cuts to advanced treatments.',
     items: ['Hair Cuts & Styling', 'Colour & Highlights', 'Keratin, Smoothening, Botox'],
+    icon: Scissors,
   },
   {
     id: 'bridal',
@@ -45,6 +74,7 @@ const SPECIALITY_GROUPS = [
     from: '₹2,000',
     summary: 'Full pre-bridal rituals and wedding day glam.',
     items: ['Pre-Bridal Package', 'Wedding Day Package', 'Party & Bridal Makeup'],
+    icon: Crown,
   },
   {
     id: 'men',
@@ -53,6 +83,7 @@ const SPECIALITY_GROUPS = [
     from: '₹100',
     summary: 'Dedicated grooming studio for him.',
     items: ['Hair Cuts & Styling', 'Colour & Spa', 'Beard Styling & Shaves'],
+    icon: User,
   },
 ];
 
@@ -248,10 +279,10 @@ export default function Home() {
 
                 <div className="space-y-5 pt-2">
                   {[
-                    { icon: Sparkles, label: 'Hair & Styling Services', desc: 'Cuts, colour and smoothening' },
-                    { icon: Palette, label: 'Skin & Facial Rituals', desc: 'Clean-ups, de-tan and facials' },
-                    { icon: Leaf, label: 'Nail & Hand Care', desc: 'Manicures, pedicures and extensions' },
-                    { icon: Flower2, label: 'Bridal & Occasion Looks', desc: 'Makeup, hair and pre-bridal care' },
+                    { icon: Scissors, label: 'Hair & Styling Services', desc: 'Cuts, colour and smoothening' },
+                    { icon: Droplets, label: 'Skin & Facial Rituals', desc: 'Clean-ups, de-tan and facials' },
+                    { icon: HandHeart, label: 'Nail & Hand Care', desc: 'Manicures, pedicures and extensions' },
+                    { icon: Crown, label: 'Bridal & Occasion Looks', desc: 'Makeup, hair and pre-bridal care' },
                   ].map((item, idx) => (
                     <motion.div
                       key={idx}
@@ -333,7 +364,7 @@ export default function Home() {
                       </p>
                     </div>
                     <div className="w-9 h-9 rounded-xl bg-[#E7646A]/10 flex items-center justify-center group-hover:bg-[#E7646A]/20 transition-colors">
-                      <Sparkles className="w-5 h-5 text-[#E7646A]" />
+                      <group.icon className="w-5 h-5 text-[#E7646A]" />
                     </div>
                   </div>
                   <p className="text-sm text-gray-500 mb-4">
