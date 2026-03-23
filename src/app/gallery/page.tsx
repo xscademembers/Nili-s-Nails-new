@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { GALLERY } from '@/lib/constants';
 import { Maximize2, Loader2 } from 'lucide-react';
 
 interface GalleryItem {
@@ -22,17 +21,24 @@ export default function Gallery() {
     fetch('/api/gallery')
       .then((res) => res.json())
       .then((data: GalleryItem[]) => {
-        setItems(data.length > 0 ? data : GALLERY);
+        setItems(data);
         setLoading(false);
       })
       .catch(() => {
-        setItems(GALLERY);
+        setItems([]);
         setLoading(false);
       });
   }, []);
 
   const filteredGallery =
     filter === 'All' ? items : items.filter((item) => item.category === filter);
+
+  const getImageSrc = (image: string) => {
+    const trimmed = image.trim();
+    if (!trimmed) return '';
+    if (trimmed.startsWith('/')) return trimmed;
+    return `/api/image-proxy?url=${encodeURIComponent(trimmed)}`;
+  };
 
   return (
     <div className="pt-8 sm:pt-12 md:pt-16 pb-16 sm:pb-24 bg-[#FAF9F6] min-h-screen">
@@ -79,7 +85,7 @@ export default function Gallery() {
                   className="group relative overflow-hidden rounded-2xl aspect-square shadow-sm cursor-pointer"
                 >
                   <img
-                    src={item.image}
+                    src={getImageSrc(item.image)}
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />

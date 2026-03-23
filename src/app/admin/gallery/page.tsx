@@ -91,6 +91,13 @@ export default function AdminGallery() {
     }
   };
 
+  const getImageSrc = (image: string) => {
+    const trimmed = image.trim();
+    if (!trimmed) return '';
+    if (trimmed.startsWith('/')) return trimmed;
+    return `/api/image-proxy?url=${encodeURIComponent(trimmed)}`;
+  };
+
   return (
     <div>
       <div className="flex items-center justify-between gap-4 mb-6">
@@ -138,7 +145,7 @@ export default function AdminGallery() {
             >
               <div className="aspect-square overflow-hidden relative">
                 <img
-                  src={item.image}
+                  src={getImageSrc(item.image)}
                   alt={item.title}
                   className="w-full h-full object-cover"
                 />
@@ -228,7 +235,7 @@ export default function AdminGallery() {
               {form.image && (
                 <div className="rounded-xl overflow-hidden aspect-video bg-gray-100">
                   <img
-                    src={form.image}
+                    src={getImageSrc(form.image)}
                     alt="Preview"
                     className="w-full h-full object-cover"
                   />
