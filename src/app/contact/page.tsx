@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Clock, Send, CheckCircle, Loader2, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Clock, Send, CheckCircle, Loader2, MessageCircle, Instagram } from 'lucide-react';
 
 const GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/DEn3CzyX6bkHnojdA';
 
@@ -92,6 +92,15 @@ export default function Contact() {
                   <a href="https://wa.me/919346007152" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-[#E7646A]">
                     <MessageCircle className="w-4 h-4" />
                     WhatsApp: 9346007152
+                  </a>
+                  <a
+                    href="https://www.instagram.com/nilisbeautylounge.vizag?igsh=N2kydW9ieGgxMzd5&utm_source=qr"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2 hover:text-[#E7646A] whitespace-nowrap"
+                  >
+                    <Instagram className="w-4 h-4" />
+                    Instagram: @nilisbeautylounge.vizag
                   </a>
                 </p>
               </div>

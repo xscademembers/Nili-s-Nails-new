@@ -18,6 +18,11 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Nili's Nail & Beauty Lounge | Luxury Salon & Spa",
   description: 'Redefining beauty through a lens of luxury and grace. Your sanctuary for personalized beauty care.',
+  icons: {
+    icon: "/Nili's logo.pdf.png",
+    shortcut: "/Nili's logo.pdf.png",
+    apple: "/Nili's logo.pdf.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
