@@ -187,7 +187,7 @@ const HAIR_WOMEN_SECTIONS = [
     items: hairTreatmentWomen?.items ?? [],
   },
   {
-    title: 'Hair Spa',
+    title: 'Hair Care',
     items: hairSpaWomen?.items ?? [],
   },
   {
@@ -245,7 +245,7 @@ const MEN_HAIR_SECTIONS = [
   { title: 'Hair Cut', items: menHaircut?.items ?? [] },
   { title: 'Hair Colour', items: menHairColour?.items ?? [] },
   { title: 'Hair Treatments', items: menHairTreatment?.items ?? [] },
-  { title: 'Hair Spa', items: menHairSpa?.items ?? [] },
+  { title: 'Hair Care', items: menHairSpa?.items ?? [] },
   { title: 'Head Massage', items: menHeadMassage?.items ?? [] },
 ].filter((section) => section.items.length > 0);
 
@@ -458,7 +458,7 @@ export default function Services() {
                             Hair (Women)
                           </h2>
                           <p className="text-xs text-gray-400 mt-0.5 line-clamp-2">
-                            Cuts, colour, treatments, spa and head massage in one place.
+                            Cuts, colour, treatments and head massage in one place.
                           </p>
                         </div>
                         <div className="flex items-center gap-3 flex-shrink-0">
@@ -828,7 +828,7 @@ export default function Services() {
                             Hair (Men)
                           </h2>
                           <p className="text-xs text-gray-400 mt-0.5 line-clamp-2">
-                            Haircuts, colour, treatments, spa and head massage together.
+                            Haircuts, colour, treatments and head massage together.
                           </p>
                         </div>
                         <div className="flex items-center gap-3 flex-shrink-0">

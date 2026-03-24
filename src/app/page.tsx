@@ -82,7 +82,7 @@ const SPECIALITY_GROUPS = [
     anchor: '/services#men',
     from: '₹100',
     summary: 'Dedicated grooming studio for him.',
-    items: ['Hair Cuts & Styling', 'Colour & Spa', 'Beard Styling & Shaves'],
+    items: ['Hair Cuts & Styling', 'Hair Colour', 'Beard Styling & Shaves'],
     icon: User,
   },
 ];

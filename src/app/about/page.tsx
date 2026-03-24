@@ -16,7 +16,7 @@ export default function About() {
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif leading-tight">Crafting Beauty <br /> Since 2022</h1>
             <p className="text-gray-500 leading-relaxed text-lg">
               Nili&apos;s Nail &amp; Beauty Lounge began with a simple idea in Vizag: a neighbourhood salon where hair,
-              skin and nails are treated with the same care as a luxury spa, but in a warm, friendly space you can call
+              skin and nails are treated with the same care as a luxury salon, but in a warm, friendly space you can call
               your own.
             </p>
             <p className="text-gray-500 leading-relaxed">

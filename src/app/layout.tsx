@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Nili's Nail & Beauty Lounge | Luxury Salon & Spa",
+  title: "Nili's Nail & Beauty Lounge | Luxury Salon",
   description: 'Redefining beauty through a lens of luxury and grace. Your sanctuary for personalized beauty care.',
   icons: {
     icon: "/Nili's logo.pdf.png",
